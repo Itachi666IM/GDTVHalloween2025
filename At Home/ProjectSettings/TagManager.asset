@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -13,7 +15,7 @@ TagManager:
   - UI
   - Background
   - Interactable
-  - 
+  - Platform
   - 
   - 
   - 
@@ -43,6 +45,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 2629992603
+    locked: 0
+  - name: Platform
+    uniqueID: 1210495635
     locked: 0
   - name: Interactable
     uniqueID: 2692961427
