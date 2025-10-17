@@ -16,7 +16,7 @@ TagManager:
   - Background
   - Interactable
   - Platform
-  - 
+  - Player
   - 
   - 
   - 
@@ -51,6 +51,9 @@ TagManager:
     locked: 0
   - name: Interactable
     uniqueID: 2692961427
+    locked: 0
+  - name: Player
+    uniqueID: 1147076545
     locked: 0
   - name: Canvas
     uniqueID: 3893828487
