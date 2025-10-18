@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Player : MonoBehaviour
     public LayerMask platformLayer;
     bool canJump;
     bool isFacingRight = false;
+
+    [SerializeField] TMP_Text speedText;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,6 +33,7 @@ public class Player : MonoBehaviour
         {
             canJump = false;
         }
+        speedText.text = "Speed - " + Mathf.Abs(Mathf.Round(rb.linearVelocity.x)).ToString();
     }
 
 
