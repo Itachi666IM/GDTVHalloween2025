@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -13,8 +14,9 @@ public class Player : MonoBehaviour
     public LayerMask platformLayer;
     bool canJump;
     bool isFacingRight = false;
-
+    [HideInInspector] public int coins;
     [SerializeField] TMP_Text speedText;
+    [SerializeField] TMP_Text coinText;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,6 +36,7 @@ public class Player : MonoBehaviour
             canJump = false;
         }
         speedText.text = "Speed - " + Mathf.Abs(Mathf.Round(rb.linearVelocity.x)).ToString();
+        coinText.text = "Coins - " + coins.ToString();
     }
 
 
@@ -82,5 +85,11 @@ public class Player : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180f, 0);
             isFacingRight = true;
         }
+    }
+
+    public void RespawnPlayerAtCheckpoint()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //yet to be implemented
     }
 }
