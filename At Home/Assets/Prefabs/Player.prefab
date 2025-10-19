@@ -78,7 +78,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 800}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
@@ -304,7 +304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4de1d0aeeedd294e9981b3bc983fa0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  anim: {fileID: 0}
+  speed: 8
   jumpSpeed: 8
   platformLayer:
     serializedVersion: 2
@@ -681,8 +682,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.05999998, y: -0.7448803}
-  m_Size: {x: 0.8641062, y: 0.27342656}
+  m_Offset: {x: 0.025670145, y: -0.7448803}
+  m_Size: {x: 1.0746742, y: 0.27342656}
   m_Direction: 1
 --- !u!114 &4943950272597153335
 MonoBehaviour:

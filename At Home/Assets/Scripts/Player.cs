@@ -1,17 +1,18 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
     BoxCollider2D myCollider;
-    Animator anim;
+    [HideInInspector]public Animator anim;
     Vector2 moveDirection;
+    LevelManager levelManager;
     [SerializeField] private float speed;
     [SerializeField] private float jumpSpeed;
     public LayerMask platformLayer;
+    public bool isDead = false;
     bool canJump;
     bool isFacingRight = false;
     [HideInInspector] public int coins;
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     [SerializeField] TMP_Text coinText;
     private void Awake()
     {
+        levelManager = FindAnyObjectByType<LevelManager>();
         rb = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
@@ -26,7 +28,10 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        FlipSprite();
+        if(!isDead)
+        {
+            FlipSprite();
+        }
         if (myCollider.IsTouchingLayers(platformLayer))
         {
             canJump = true;
@@ -47,7 +52,7 @@ public class Player : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (value.isPressed && canJump)
+        if (value.isPressed && canJump &&!isDead)
         {
             anim.SetTrigger("jump");
             rb.linearVelocityY += jumpSpeed;
@@ -56,7 +61,10 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Walk();
+        if(!isDead)
+        {
+            Walk();
+        }
     }
 
     void Walk()
@@ -89,7 +97,8 @@ public class Player : MonoBehaviour
 
     public void RespawnPlayerAtCheckpoint()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //yet to be implemented
+        anim.SetTrigger("dead");
+        isDead = true;
+        levelManager.ActivateCheckpointOnDeath();
     }
 }
