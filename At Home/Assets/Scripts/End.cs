@@ -11,6 +11,7 @@ public class End : MonoBehaviour
     [SerializeField] GameObject nextButton;
     [SerializeField] GameObject restartButton;
     [SerializeField] GameObject exitButton;
+    [SerializeField] GameObject skipButton;
     [SerializeField] TMP_Text dialogueText;
     [SerializeField] TMP_Text speakerText;
     public float typingSpeed;
@@ -62,6 +63,7 @@ public class End : MonoBehaviour
         }
         else
         {
+            skipButton.SetActive(false);
             restartButton.SetActive(true);
             exitButton.SetActive(true);
             son.SetActive(true);
