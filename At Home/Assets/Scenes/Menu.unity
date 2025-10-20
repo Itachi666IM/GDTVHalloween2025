@@ -1891,7 +1891,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 22390aa2f01efa2449265d53c5f09914, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -2005,6 +2005,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volumeSlider: {fileID: 1851255999}
+  menuMusic: {fileID: 8300000, guid: 22390aa2f01efa2449265d53c5f09914, type: 3}
+  gameMusic: {fileID: 8300000, guid: 207fadbaf73804a4ba897503d765bba3, type: 3}
 --- !u!1 &1220129381
 GameObject:
   m_ObjectHideFlags: 0
