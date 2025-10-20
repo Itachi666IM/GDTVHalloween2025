@@ -5,10 +5,15 @@ using UnityEngine.InputSystem;
 public class Portal : MonoBehaviour
 {
     bool canTP;
+    SFX sfx;
 
+    private void Awake()
+    {
+        sfx = GetComponent<SFX>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             canTP = true;
         }
@@ -16,7 +21,7 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.tag == "Player")
         {
             canTP = false;
         }
@@ -24,13 +29,19 @@ public class Portal : MonoBehaviour
 
     private void Update()
     {
-        if(canTP)
+        if (canTP)
         {
             if (Keyboard.current.eKey.wasPressedThisFrame)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                sfx.PlayMySound();
+                Invoke(nameof(Teleport), 1f);
             }
         }
-        
+
+    }
+
+    void Teleport()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

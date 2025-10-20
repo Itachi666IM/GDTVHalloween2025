@@ -152,7 +152,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   transitionPanel: {fileID: 204112574143224877}
-  respawnTime: 1.25
+  respawnTime: 2.5
 --- !u!1 &9071650953486726992
 GameObject:
   m_ObjectHideFlags: 0

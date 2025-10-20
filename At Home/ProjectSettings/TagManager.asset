@@ -19,7 +19,7 @@ TagManager:
   - Platform
   - Player
   - Enemy
-  - 
+  - Particles
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Platform
     uniqueID: 1210495635
+    locked: 0
+  - name: Particles
+    uniqueID: 3657668553
     locked: 0
   - name: Interactable
     uniqueID: 2692961427
