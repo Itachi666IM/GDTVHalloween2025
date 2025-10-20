@@ -18,12 +18,19 @@ public class Player : MonoBehaviour
     [HideInInspector] public int coins;
     [SerializeField] TMP_Text speedText;
     [SerializeField] TMP_Text coinText;
+
+    AudioSource myAudio;
+    SFXManager sfxManager;
+    [SerializeField] AudioClip jumpSound;
+    [SerializeField] AudioClip deathSound;
     private void Awake()
     {
         levelManager = FindAnyObjectByType<LevelManager>();
         rb = GetComponent<Rigidbody2D>();
         myCollider = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
+        myAudio = GetComponent<AudioSource>();
+        sfxManager = FindAnyObjectByType<SFXManager>();
     }
 
     private void Update()
@@ -55,6 +62,7 @@ public class Player : MonoBehaviour
         if (value.isPressed && canJump &&!isDead)
         {
             anim.SetTrigger("jump");
+            sfxManager.PlayAnyAudio(jumpSound);
             rb.linearVelocityY += jumpSpeed;
         }
 
@@ -74,10 +82,12 @@ public class Player : MonoBehaviour
         if (Mathf.Abs(moveDirection.x) > 0f)
         {
             anim.SetBool("isWalking", true);
+            myAudio.enabled = true;
         }
         else
         {
             anim.SetBool("isWalking", false);
+            myAudio.enabled = false;
         }
     }
 
@@ -98,6 +108,7 @@ public class Player : MonoBehaviour
     public void RespawnPlayerAtCheckpoint()
     {
         anim.SetTrigger("dead");
+        sfxManager.PlayAnyAudio(deathSound);
         isDead = true;
         levelManager.ActivateCheckpointOnDeath();
     }

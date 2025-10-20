@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2597043230486253693}
   - component: {fileID: 4653393816522908038}
   - component: {fileID: 669472077676752034}
+  - component: {fileID: 7132561941069812274}
   m_Layer: 7
   m_Name: Coin
   m_TagString: Coin
@@ -160,3 +161,16 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.295
+--- !u!114 &7132561941069812274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3892724394391142163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4ea51fae0bcfe84a87127fceb91fedb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mySound: {fileID: 8300000, guid: 7786031051c05384a9160d2d6b815d20, type: 3}

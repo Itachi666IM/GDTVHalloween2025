@@ -15,10 +15,14 @@ public class Enemy : MonoBehaviour
         player = FindAnyObjectByType<Player>();
     }
 
+    private void FixedUpdate()
+    {
+        rb.linearVelocity = new Vector2(speed *  Time.fixedDeltaTime, 0);
+    }
+
     private void Update()
     {
-        rb.linearVelocity = new Vector2(speed *  Time.deltaTime, 0);
-        if(!myCapsuleCollider.IsTouchingLayers(platformLayer))
+        if (!myCapsuleCollider.IsTouchingLayers(platformLayer))
         {
             FlipSprite();
         }
